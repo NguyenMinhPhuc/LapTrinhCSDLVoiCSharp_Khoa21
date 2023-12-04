@@ -11,25 +11,16 @@ namespace FirstProject
 {
     public class MyDatabase_SingleTon
     {
-        private static MyDatabase_SingleTon instance;
-        private MyDatabase_SingleTon(bool winNT)
-        {
-            if (winNT)
-            {
-                ConnectString = "server=MINHPHUC\\MSSQL2019;database=Data_QuanLiHocVien;Integrated security=true;";
-            }
-            else
-            {
-                ConnectString = "server=MINHPHUC\\MSSQL2019;database=Data_QuanLiHocVien;uid=sa;pwd=infor210385;";
-            }
-            conn = new SqlConnection(ConnectString);
-        }
-
         private SqlConnection conn;
         static bool winNT = false;
-        private string connectString = string.Empty;
+        private static string connectionString = string.Empty;
         string err = string.Empty;
 
+        private static MyDatabase_SingleTon instance;
+        private MyDatabase_SingleTon(string connectionString)
+        {
+            conn = new SqlConnection(connectionString);
+        }
         public bool WinNT
         {
             get { return winNT; }
@@ -37,8 +28,8 @@ namespace FirstProject
         }
         public string ConnectString
         {
-            get { return connectString; }
-            set { connectString = value; }
+            get { return connectionString; }
+            set { connectionString = value; }
         }
         public static MyDatabase_SingleTon Instance
         {
@@ -46,7 +37,15 @@ namespace FirstProject
             {
                 if (instance == null)
                 {
-                    instance = new MyDatabase_SingleTon(winNT);
+                    if (winNT)
+                    {
+                        connectionString = "server=MINHPHUC\\MSSQL2019;database=Data_QuanLiHocVien;Integrated security=true;";
+                    }
+                    else
+                    {
+                        connectionString = "server=MINHPHUC\\MSSQL2019;database=Data_QuanLiHocVien;uid=sa;pwd=infor210385;";
+                    }
+                    instance = new MyDatabase_SingleTon(connectionString);
                 }
                 return instance;
             }
