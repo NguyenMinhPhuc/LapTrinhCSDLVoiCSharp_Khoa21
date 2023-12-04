@@ -20,23 +20,15 @@ namespace FirstProject
             get { return connectString; }
             set { connectString = value; }
         }
-        public MyDatabase(bool winNT)
+        public MyDatabase(string connectionString)
         {
-            if (winNT)
-            {
-                ConnectString = "server=MINHPHUC\\MSSQL2019;database=Data_QuanLiHocVien;Integrated security=true;";
-            }
-            else
-            {
-                ConnectString = "server=MINHPHUC\\MSSQL2019;database=Data_QuanLiHocVien;uid=sa;pwd=infor210385;";
-            }
-            conn = new SqlConnection(ConnectString);
+            conn = new SqlConnection(connectionString);
         }
-
         public bool CheckConnectToSql(ref string err)
         {
             try
             {
+                //Kiểm tra trạng thái kết nối của đối tượng SqlConnection
                 if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
@@ -49,9 +41,8 @@ namespace FirstProject
                 err = ex.Message;
                 return false;
             }
+            //kết nối luôn luôn được đóng trong mọi trường hợp
             finally { conn.Close(); }
         }
-
-
     }
 }
