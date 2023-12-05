@@ -51,7 +51,7 @@ namespace FirstProject
                 MessageBox.Show("Kết nối không thành công đến SQL do: \n " + err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         private void ckbWinNT_CheckedChanged(object sender, EventArgs e)
         {
 

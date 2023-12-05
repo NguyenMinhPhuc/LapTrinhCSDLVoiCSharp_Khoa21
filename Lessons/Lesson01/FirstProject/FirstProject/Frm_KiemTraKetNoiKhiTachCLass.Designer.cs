@@ -37,7 +37,7 @@
             this.btnKiemTraKetNoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKiemTraKetNoi.Location = new System.Drawing.Point(155, 40);
             this.btnKiemTraKetNoi.Name = "btnKiemTraKetNoi";
-            this.btnKiemTraKetNoi.Size = new System.Drawing.Size(420, 155);
+            this.btnKiemTraKetNoi.Size = new System.Drawing.Size(399, 137);
             this.btnKiemTraKetNoi.TabIndex = 0;
             this.btnKiemTraKetNoi.Text = "Check Connect to Sql server";
             this.btnKiemTraKetNoi.UseVisualStyleBackColor = true;
