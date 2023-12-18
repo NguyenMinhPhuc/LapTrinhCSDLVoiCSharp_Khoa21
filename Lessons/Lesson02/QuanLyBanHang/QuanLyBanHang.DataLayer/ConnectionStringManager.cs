@@ -8,14 +8,21 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.DataLayer
 {
-    public class ConnectionStringManager
+    /// <summary>
+    /// Lớp ConnectionStringManager là lớp dùng để thực hiện đọc và ghi chuỗi kết nối của ứng dụng vào trong file ini.
+    /// </summary>
+    public sealed class ConnectionStringManager
     {
+        //Khai báo biến Instance theo design pattern single ton
         private static ConnectionStringManager instance;
+        //Biến dùng để lưu thành phần chuỗi kết nối
         private SqlConnectionStringBuilder connectionStringBuilder;
+        //Hàm tạo private để đảm bảo đối tượng không được khởi tạo từ phía bên ngoài
         private ConnectionStringManager()
         {
             ConnectionStringBuilder = new SqlConnectionStringBuilder();
         }
+        //Properties cho đối tượng SingleTon để có thể gọi từ xa
         public static ConnectionStringManager Instance
         {
             get
@@ -27,7 +34,7 @@ namespace QuanLyBanHang.DataLayer
                 return instance;
             }
         }
-
+        //properties của đối tượng SqlConnectionStringBuilder
         public SqlConnectionStringBuilder ConnectionStringBuilder
         {
             get
@@ -39,7 +46,10 @@ namespace QuanLyBanHang.DataLayer
                 connectionStringBuilder = value;
             }
         }
-
+        /// <summary>
+        /// Phương thức đọc chuỗi kết nối từ file ini
+        /// </summary>
+        /// <param name="path">đường dẫn chuỗi kết nối</param>
         public void ReadConnectionString(string path)
         {
             using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -73,7 +83,10 @@ namespace QuanLyBanHang.DataLayer
                 }
             }
         }
-
+        /// <summary>
+        /// Phương thức dùng để ghi chuỗi kết nối vào file ini theo đường dẫn chỉ đinh
+        /// </summary>
+        /// <param name="path">Đường dẫn của file ini</param>
         public void WriteConnectionString(string path)
         {
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Write))
@@ -90,3 +103,4 @@ namespace QuanLyBanHang.DataLayer
 
         }
     }
+}
