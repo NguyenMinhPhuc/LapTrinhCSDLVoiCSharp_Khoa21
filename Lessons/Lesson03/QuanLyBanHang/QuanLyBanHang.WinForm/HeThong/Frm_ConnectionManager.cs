@@ -48,6 +48,12 @@ namespace QuanLyBanHang.WinForm.HeThong
 
                 cboAuthentication.SelectedIndex = 1;
             }
+            if (!string.IsNullOrEmpty(err))
+                lblErr.Text = err;
+            else
+            {
+                lblErr.Text = sqlConnectionStringBuilder.ConnectionString;
+            }
         }
 
         private void CreateConnectionString(ref string err, string path)
@@ -86,6 +92,7 @@ namespace QuanLyBanHang.WinForm.HeThong
                 sqlConnectionStringBuilder.IntegratedSecurity = true;
                 bd.WriteConnectionString(ref err, path, sqlConnectionStringBuilder);
             }
+            lblErr.Text = err.ToString();
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -94,6 +101,8 @@ namespace QuanLyBanHang.WinForm.HeThong
                 if (!string.IsNullOrEmpty(txtDatabase.Text))
                 {
                     CreateConnectionString(ref err, ClsMain.path);
+                    ReadConnetionString(ref err, ClsMain.path);
+                    MessageBox.Show("Tạo chuỗi kết nối thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -119,6 +128,11 @@ namespace QuanLyBanHang.WinForm.HeThong
                 txtPassword.Enabled = true;
             }
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

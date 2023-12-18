@@ -44,6 +44,8 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,14 +62,14 @@
             // 
             this.txtServer.Location = new System.Drawing.Point(196, 63);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(402, 35);
+            this.txtServer.Size = new System.Drawing.Size(502, 35);
             this.txtServer.TabIndex = 1;
             // 
             // txtDatabase
             // 
             this.txtDatabase.Location = new System.Drawing.Point(196, 104);
             this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(402, 35);
+            this.txtDatabase.Size = new System.Drawing.Size(502, 35);
             this.txtDatabase.TabIndex = 3;
             // 
             // label2
@@ -83,7 +85,7 @@
             // 
             this.txtUserID.Location = new System.Drawing.Point(196, 188);
             this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(402, 35);
+            this.txtUserID.Size = new System.Drawing.Size(502, 35);
             this.txtUserID.TabIndex = 5;
             // 
             // label3
@@ -100,7 +102,7 @@
             this.txtPassword.Location = new System.Drawing.Point(196, 229);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '@';
-            this.txtPassword.Size = new System.Drawing.Size(402, 35);
+            this.txtPassword.Size = new System.Drawing.Size(502, 35);
             this.txtPassword.TabIndex = 7;
             // 
             // label4
@@ -120,7 +122,7 @@
             "SQL Server Authentication"});
             this.cboAuthentication.Location = new System.Drawing.Point(196, 145);
             this.cboAuthentication.Name = "cboAuthentication";
-            this.cboAuthentication.Size = new System.Drawing.Size(402, 37);
+            this.cboAuthentication.Size = new System.Drawing.Size(502, 37);
             this.cboAuthentication.TabIndex = 8;
             this.cboAuthentication.SelectedIndexChanged += new System.EventHandler(this.cboAuthentication_SelectedIndexChanged);
             // 
@@ -140,7 +142,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(609, 52);
+            this.label6.Size = new System.Drawing.Size(718, 52);
             this.label6.TabIndex = 10;
             this.label6.Text = "Connect to SQL Server";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,18 +152,20 @@
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblErr});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 343);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 334);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(609, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(718, 22);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // lblErr
             // 
-            this.lblErr.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblErr.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblErr.ForeColor = System.Drawing.Color.Blue;
             this.lblErr.Name = "lblErr";
-            this.lblErr.Size = new System.Drawing.Size(18, 20);
+            this.lblErr.Size = new System.Drawing.Size(16, 17);
             this.lblErr.Text = "...";
+            this.lblErr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnTest
             // 
@@ -169,7 +173,7 @@
             this.btnTest.FlatAppearance.BorderSize = 0;
             this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Location = new System.Drawing.Point(196, 282);
+            this.btnTest.Location = new System.Drawing.Point(338, 270);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(116, 45);
             this.btnTest.TabIndex = 12;
@@ -182,7 +186,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(318, 282);
+            this.btnSave.Location = new System.Drawing.Point(460, 270);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(116, 45);
             this.btnSave.TabIndex = 13;
@@ -196,18 +200,43 @@
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(440, 282);
+            this.btnExit.Location = new System.Drawing.Point(582, 270);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(116, 45);
             this.btnExit.TabIndex = 14;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Location = new System.Drawing.Point(714, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(4, 282);
+            this.label7.TabIndex = 15;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Location = new System.Drawing.Point(0, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(4, 282);
+            this.label8.TabIndex = 16;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm_ConnectionManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 368);
+            this.ClientSize = new System.Drawing.Size(718, 356);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnTest);
@@ -255,5 +284,7 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
